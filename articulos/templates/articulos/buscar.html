@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block titulo %}Buscar{% endblock %}
+{% block contenido %}
+  <h1>Buscar artículos</h1>
+  <form method="get" class="buscador">
+    <input type="text" name="q" value="{{ texto }}" placeholder="Título o contenido...">
+    <button type="submit" class="boton">Buscar</button>
+  </form>
+
+  {% if texto %}
+    <p class="meta">Resultados para "{{ texto }}": {{ resultados|length }}</p>
+    {% for articulo in resultados %}
+      <p><a href="{% url 'detalle' articulo.pk %}">{{ articulo.titulo }}</a> · {{ articulo.autor.username }}</p>
+    {% empty %}
+      <p>No encontramos artículos con "{{ texto }}".</p>
+    {% endfor %}
+  {% endif %}
+{% endblock %}
