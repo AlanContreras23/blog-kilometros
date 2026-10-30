@@ -51,4 +51,4 @@ static/css/  estilos
 ## Autor
 
 Proyecto final de la diplomatura Python — Coderhouse.
-Autor: _tu nombre_
+Autor: Alan Contreras
